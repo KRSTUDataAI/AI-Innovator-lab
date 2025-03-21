@@ -1,1 +1,1 @@
-# AI-Innovator-lab
+# rag-innovator-lab
