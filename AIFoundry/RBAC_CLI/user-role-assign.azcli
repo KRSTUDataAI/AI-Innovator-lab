@@ -1,0 +1,48 @@
+# Open terminal in Azure portal after login
+# Assign roles for PromptFlow with following commands
+
+
+
+$ai_project_assignee = ''
+$project_resource = ''
+
+$storage_account_resource = ''
+$acr_assignee = ''
+$compute_instance = ''
+
+
+
+#====================================================================================================
+# AI Project -> Storage account
+#====================================================================================================
+az role assignment create --assignee $ai_project_assignee `
+--role "Storage File Data Privileged Contributor" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# AI Project -> Storage account
+#====================================================================================================
+az role assignment create --assignee $ai_project_assignee `
+--role "Storage Blob Data Contributor" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# AI Project -> Storage account
+#====================================================================================================
+az role assignment create --assignee $acr_assignee `
+--role "Storage Blob Data Reader" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# Compute Instance -> AI Project
+#====================================================================================================
+az role assignment create --assignee $compute_instance `
+--role "Contributor" `
+--scope $project_resource
+
+#====================================================================================================
+# Compute Instance -> AI Project
+#====================================================================================================
+az role assignment create --assignee $compute_instance `
+--role "Azure Machine Learning Workspace Connection Secrets Reader" `
+--scope $project_resource
