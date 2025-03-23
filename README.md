@@ -5,7 +5,7 @@ This repository is part of Microsoft Korea's AI Innovator Labs.
 
 -----
 
-### 0️⃣ Introduction
+## 0️⃣ Introduction
 
 **RAG Innovator Lab** designs an end-to-end integration scenario between Microsoft Fabric (OneLake) and AI Foundry.
 
@@ -14,7 +14,7 @@ The scenario demonstrates how to ingest data from multiple sources into OneLake,
 RAG Innovator Lab's goal is to showcase the **integration between Microsoft Fabric and AI Foundry**, and ultimately, to provide insights for future service requirements and enhancements.
 
 
-### 1️⃣ Solution Scenario
+## 1️⃣ Solution Scenario
 
 In this current setup:
 
@@ -26,7 +26,7 @@ In this current setup:
 
 * Using the **Promptflow** GUI, users can easily connect **OneLake-based AI Search** to an LLM node, creating a seamless RAG pipeline.
 
-### 2️⃣ Lab Agenda
+## 2️⃣ Lab Agenda
 
 This lab is designed to be hands-on, allowing users to experience and interact with the integrated RAG pipeline firsthand. The lab is designed to take approximately 4 hours.
 
@@ -38,7 +38,7 @@ This lab is designed to be hands-on, allowing users to experience and interact w
 | 4  | AI Application Development Hands-On Lab| 30 minutes     | (Optional) Evaluation, +30 minutes |
 | 5  | Wrap-up and Q&A                        | 30 minutes     |                                   |
 
-### 3️⃣ Lab Materials
+## 3️⃣ Materials
 
 You can find the step-by-step instructions for lab participants here: [Step-by-Step User's Guide - Korean](RAG_Inno_Lab_User_Guide.pdf)
 
