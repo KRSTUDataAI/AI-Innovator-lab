@@ -4,11 +4,11 @@
 
 
 $ai_project_assignee = ''
-$project_resource = ''
+$ai_project_workspace_resource = ''
 
 $storage_account_resource = ''
 $acr_assignee = ''
-$compute_instance = ''
+$compute_instance_assignee = ''
 
 
 
@@ -36,13 +36,13 @@ az role assignment create --assignee $acr_assignee `
 #====================================================================================================
 # Compute Instance -> AI Project
 #====================================================================================================
-az role assignment create --assignee $compute_instance `
+az role assignment create --assignee $compute_instance_assignee `
 --role "Contributor" `
---scope $project_resource
+--scope $ai_project_workspace_resource
 
 #====================================================================================================
 # Compute Instance -> AI Project
 #====================================================================================================
-az role assignment create --assignee $compute_instance `
+az role assignment create --assignee $compute_instance_assignee `
 --role "Azure Machine Learning Workspace Connection Secrets Reader" `
---scope $project_resource
+--scope $ai_project_workspace_resource
