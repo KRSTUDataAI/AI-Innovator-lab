@@ -1,0 +1,48 @@
+# Open terminal in Azure portal after login
+# Assign roles for PromptFlow with following commands
+
+
+
+$ai_project_assignee = ''
+$ai_project_workspace_resource = ''
+
+$storage_account_resource = ''
+$acr_assignee = ''
+$compute_instance_assignee = ''
+
+
+
+#====================================================================================================
+# AI Project -> Storage account
+#====================================================================================================
+az role assignment create --assignee $ai_project_assignee `
+--role "Storage File Data Privileged Contributor" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# AI Project -> Storage account
+#====================================================================================================
+az role assignment create --assignee $ai_project_assignee `
+--role "Storage Blob Data Contributor" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# AI Project -> Storage account
+#====================================================================================================
+az role assignment create --assignee $acr_assignee `
+--role "Storage Blob Data Reader" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# Compute Instance -> AI Project
+#====================================================================================================
+az role assignment create --assignee $compute_instance_assignee `
+--role "Contributor" `
+--scope $ai_project_workspace_resource
+
+#====================================================================================================
+# Compute Instance -> AI Project
+#====================================================================================================
+az role assignment create --assignee $compute_instance_assignee `
+--role "Azure Machine Learning Workspace Connection Secrets Reader" `
+--scope $ai_project_workspace_resource

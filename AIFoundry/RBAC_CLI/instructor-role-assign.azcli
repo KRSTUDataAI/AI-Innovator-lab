@@ -1,0 +1,52 @@
+# Open terminal in Azure portal after login or run 'az login' in local terminal
+# Assign roles for AI Search and AOAI with following commands
+
+
+
+$ai_search_resource = ''
+$aoai_assignee = ''
+$storage_account_resource = ''
+
+
+
+#====================================================================================================
+# Azure OpenAI -> AI Search
+#====================================================================================================
+# Inference service queries the data from the index.
+az role assignment create --assignee $aoai_assignee `
+--role "Search Index Data Reader" `
+--scope $ai_search_resource
+
+# Inference service queries the index schema for auto fields mapping. Data ingestion service creates index, data sources, skill set, indexer, and queries the indexer status.
+az role assignment create --assignee $aoai_assignee `
+--role "Search Index Data Contributor" `
+--scope $ai_search_resource
+
+# Inference service queries the index schema for auto fields mapping. Data ingestion service creates index, data sources, skill set, indexer, and queries the indexer status.
+az role assignment create --assignee $aoai_assignee `
+--role "Search Service Contributor" `
+--scope $ai_search_resource
+
+#====================================================================================================
+# Azure OpenAI -> Storage account
+#====================================================================================================
+# Reads from the input container, and writes the preprocessed result to the output container.
+az role assignment create --assignee $aoai_assignee `
+--role "Storage Blob Data Contributor" `
+--scope $storage_account_resource
+
+#====================================================================================================
+# AI Search -> Azure OpenAI
+#====================================================================================================
+# Reads from the input container, and writes the preprocessed result to the output container.
+az role assignment create --assignee $ai_search_assignee `
+--role "Cognitive Services OpenAI Contributor" `
+--scope $aoai_resource
+
+#====================================================================================================
+# AI Search -> Storage account
+#====================================================================================================
+# Reads from the input container, and writes the preprocessed result to the output container.
+az role assignment create --assignee $ai_search_assignee `
+--role "Storage Blob Data Reader" `
+--scope $storage_account_resource
